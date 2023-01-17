@@ -8,6 +8,11 @@ import ReportingPage from "./screens/ReportingPage/ReportingPage";
 import LoginScreen from "./screens/LoginScreen/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
 import CreateReportPage from "./screens/CreateReportPage/CreateReportPage";
+import ReactGA from "react-ga";
+
+
+const TRACKING_ID = "UA-254377652-1";
+ReactGA.initialise(TRACKING_ID);
 
 const App = () => (
     <BrowserRouter>

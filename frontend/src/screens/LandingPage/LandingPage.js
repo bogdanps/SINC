@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ReactGA from "react-ga";
 
 import "./LandingPage.css";
 
+
 const LandingPage = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
   return (
     <div className="main">
       <Container style={{ marginTop: 180 }}>
