@@ -10,27 +10,26 @@ import RegisterScreen from "./screens/RegisterScreen/RegisterScreen";
 import CreateReportPage from "./screens/CreateReportPage/CreateReportPage";
 import ReactGA from "react-ga";
 
-
 const TRACKING_ID = "UA-254377652-1";
-ReactGA.initialise(TRACKING_ID);
+ReactGA.initialize(TRACKING_ID);
 
 const App = () => (
-    <BrowserRouter>
-        <Header></Header>
-        <main>
-            <Routes>
-                <Route path="/" element={<LandingPage />}></Route>
-                <Route path="reporting" element={<ReportingPage />}></Route>
-                <Route path="login" element={<LoginScreen />}></Route>
-                <Route path="register" element={<RegisterScreen />}></Route>
-                <Route
-                    path="reporting/createReport"
-                    element={<CreateReportPage />}
-                ></Route>
-            </Routes>
-        </main>
-        <Footer></Footer>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Header></Header>
+    <main>
+      <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="reporting" element={<ReportingPage />}></Route>
+        <Route path="login" element={<LoginScreen />}></Route>
+        <Route path="register" element={<RegisterScreen />}></Route>
+        <Route
+          path="reporting/createReport"
+          element={<CreateReportPage />}
+        ></Route>
+      </Routes>
+    </main>
+    <Footer></Footer>
+  </BrowserRouter>
 );
 
 export default App;
