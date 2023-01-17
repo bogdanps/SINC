@@ -21,8 +21,8 @@ jobs:
         run: pip show selenium  
       - name: Install Selenium
         run: pip install selenium
-      - name: Setup Chrome
-        uses: actions/setup-chromedriver@v2
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.1.0
         with:
           version: latest
       - name: Run Selenium tests
