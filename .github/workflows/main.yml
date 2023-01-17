@@ -1,3 +1,4 @@
+Copy code
 name: Deploy
 
 on:
@@ -9,8 +10,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Print working directory
+        run: pwd
+      - name: Print directory content
+        run: ls -la
+      - name: Print python version
+        run: python --version
+      - name: Print selenium version
+        run: pip show selenium  
+      - name: Install Selenium
+        run: pip install selenium
+      - name: Setup Chrome
+        uses: actions/setup-chromedriver@v2
+        with:
+          version: latest
+      - name: Run Selenium tests
+        run: python testing/test1.py
+        id: tests
+      - name: Deploy to Heroku
+        if: ${{ steps.tests.outcome == 'success' }}
+        uses: akhileshns/heroku-deploy@v3.12.12 
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "sinc" #Must be unique in Heroku
